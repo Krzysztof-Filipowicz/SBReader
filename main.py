@@ -4,8 +4,8 @@ from azure.servicebus import ServiceBusClient
 from updater import create_new_job
 from logger import insert_log
 
-# ENDPOINT = "Endpoint=sb://tmtfirstuatservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=862EjZM0jy8sW5upGvHWBmbcXJX7K2MXCYrv3559PB8="
-ENDPOINT = "Endpoint=sb://tmtfirstprodqueues.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XRIaMrfogIYIWSLF+7msAZ2gW3m+8FLUuxaKNiFsZbE="
+ENDPOINT = "Endpoint=sb://tmtfirstuatservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=862EjZM0jy8sW5upGvHWBmbcXJX7K2MXCYrv3559PB8="
+# ENDPOINT = "Endpoint=sb://tmtfirstprodqueues.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XRIaMrfogIYIWSLF+7msAZ2gW3m+8FLUuxaKNiFsZbE="
 QUEUE = "rs2uqueue"
 
 servicebus_client = ServiceBusClient.from_connection_string(conn_str=ENDPOINT, logging_enable=True)
@@ -38,7 +38,7 @@ def get_messages():
 
 
 try:
-    print("*** Mimas ver. 1.0 ***")
+    print("*** Mimas ver. 1.1 ***")
     print("Reading messages from the queue...\n")
     while True:
         get_messages()

@@ -1,1 +1,3 @@
 C:\Users\krzysztof.filipowicz\PycharmProjects\SBReader>pyinstaller.exe --onefile --paths c:\Users\krzysztof.filipowicz\PycharmProjects\SBReader\venv\Lib\site-packages\ --icon=Mimas.ico main.py --name=Mimas --windowed
+
+pyinstaller.exe --onefile --paths c:\Users\krzysztof.filipowicz\OneDrive - TMT First Ltd\PycharmProjects\SBReader\venv\Lib\site-packages\ --icon=Mimas.ico main.py --name=Mimas --windowed

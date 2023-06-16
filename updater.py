@@ -3,29 +3,9 @@ from logger import insert_log
 import mysql.connector
 
 try:
-    db = mysql.connector.connect(host="172.16.16.27", user="mimas", password="483JzXb#c=qx8HzZ", database="RMS")
+    db = mysql.connector.connect(host="172.16.16.28", user="mimas", password="483JzXb#c=qx8HzZ", database="RMS")
 except Exception as cx:
     insert_log(cx + " CX", "error")
-
-
-# def check_job_id(imei, serial):
-#     try:
-#         db.reconnect()
-#         cursor = db.cursor()
-#         sql_search = "SELECT jobnumber FROM job WHERE (job.imei=%s OR job.serial=%s) AND job.serial<>'Unknown' AND  job.lastStatus<>'BOOKED OUT'"
-#         val = (imei, serial)
-#         cursor.execute(sql_search, val)
-#         result = cursor.fetchone()
-#
-#         if result is not None:
-#             return True
-#         else:
-#             return False
-#
-#     except (db.Error, db.Warning) as dx:
-#         insert_log(dx + " DX", "error")
-#     finally:
-#         db.close()
 
 
 def create_new_job(msg):
@@ -36,7 +16,7 @@ def create_new_job(msg):
         job_id = msg['Message']['JobId']
         reference = msg['Message']['ReferenceNumber']
         manufacturer = msg['Message']['Equipment']['Manufacturer']['Name']
-        model = msg['Message']['Equipment']['PhoneModel']['Name']
+        model = msg['Message']['Equipment']['SKU']
         colour = msg['Message']['Equipment']['Color']['Name']
         imei = msg['Message']['Equipment']['Imei']
         serial = msg['Message']['Equipment']['SerialNumber']
@@ -45,8 +25,6 @@ def create_new_job(msg):
         # tracking_number = msg['Message']['Organisation']['Name']
 
         if message_type == 'NewRepair':
-
-            # if not check_job_id(imei, serial):
 
             db.reconnect()
             cursor = db.cursor()
@@ -71,11 +49,6 @@ def create_new_job(msg):
             if cursor.rowcount > 0:
                 p.pre_alert(job_id)
                 return True
-        # else:
-        #     message = "IMEI: {}, Serial: {} is already in the business!".format(imei, serial)
-        #     insert_log(message, "error")
-        #     return False
-
     except Exception as ex:
         insert_log(ex + " EX", "error")
     finally:

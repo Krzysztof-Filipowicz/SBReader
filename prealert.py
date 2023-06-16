@@ -4,8 +4,8 @@ from datetime import datetime
 from azure.servicebus import ServiceBusMessage, ServiceBusClient
 from logger import insert_log
 
-### ENDPOINT = "Endpoint=sb://tmtfirstuatservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=862EjZM0jy8sW5upGvHWBmbcXJX7K2MXCYrv3559PB8="
-ENDPOINT = "Endpoint=sb://tmtfirstprodqueues.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XRIaMrfogIYIWSLF+7msAZ2gW3m+8FLUuxaKNiFsZbE="
+ENDPOINT = "Endpoint=sb://tmtfirstuatservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=862EjZM0jy8sW5upGvHWBmbcXJX7K2MXCYrv3559PB8="
+# ENDPOINT = "Endpoint=sb://tmtfirstprodqueues.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XRIaMrfogIYIWSLF+7msAZ2gW3m+8FLUuxaKNiFsZbE="
 QUEUE = "u2rsqueue"
 utc_dt = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%f0Z')
 
